@@ -65,3 +65,7 @@ class TestRanClient(unittest.TestCase):
                 time.sleep(0.1)
 
         self.assertEqual(len(arr), 10)
+
+    def test_initialize_client_with_custom_timeouts(self):
+        client, cache = truerandomdice.ranclient.initialize_client(self.api_key, blocking_timeout=5, http_timeout=5)
+        self.assertTrue(client, isinstance(client, rdoclient.RandomOrgClient))

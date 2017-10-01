@@ -60,7 +60,7 @@ def request_random_integers(amount, min_int, max_int, client, cache=None):
         try:
             return cache.get()
         except Queue.Empty:
-            # print('queue is empty, shit')
+            # print('queue is empty')
             pass
     else:
         return client.generate_integers(amount, min_int, max_int)
