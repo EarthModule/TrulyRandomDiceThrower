@@ -2,15 +2,6 @@ import Queue
 
 from rdoclient import RandomOrgClient
 
-from truerandomdice.database import ApiKey
-
-
-def ask_api_key():
-    # https://stackoverflow.com/questions/4960208/python-2-7-getting-user-input-and-manipulating-as-string-without-quotations
-    api_key = str(raw_input('Enter valid api-key: '))
-    final_key = ApiKey.save_key(api_key)
-    return final_key
-
 
 def get_capacity_left(api_key):
     r = RandomOrgClient(api_key)
@@ -41,35 +32,16 @@ def test_connection(api_key):
     return False
 
 
-def verify_api_key():
-    db_key = ApiKey.get_key()
-
-    if db_key is None:
-        db_key = ask_api_key()
-    api_key = db_key.key
-    verified = db_key.verified
-
-    if verified != True:
-        while test_connection(api_key) != True:
-            api_key = ask_api_key()
-        ApiKey.update_key_to_valid()
-
-    print('api-key verification complete')
-    return api_key
-
-
-def initialize_client(blocking_timeout=None, http_timeout=None, cached=False, live_results=False, **kwargs):
-    api_key = ApiKey.get_key()
-    key = api_key.key
+def initialize_client(api_key, blocking_timeout=None, http_timeout=None, cached=False, live_results=False, **kwargs):
     r = None
     c = None
-    if has_capacity(key):
+    if has_capacity(api_key):
         if blocking_timeout and http_timeout:
-            r = RandomOrgClient(key, blocking_timeout, http_timeout)
+            r = RandomOrgClient(api_key, blocking_timeout, http_timeout)
 
         if cached:
             if r is None:
-                r = RandomOrgClient(key, blocking_timeout=60.0 * 60.0, http_timeout=30.0)
+                r = RandomOrgClient(api_key, blocking_timeout=60.0 * 60.0, http_timeout=30.0)
             cache_size = kwargs['cache_size']
             cache_min = kwargs['cache_min']
             cache_max = kwargs['cache_max']
@@ -78,7 +50,7 @@ def initialize_client(blocking_timeout=None, http_timeout=None, cached=False, li
 
 
         elif live_results:
-            r = RandomOrgClient(key, blocking_timeout=0.0, http_timeout=10.0, serialized=False)
+            r = RandomOrgClient(api_key, blocking_timeout=0.0, http_timeout=10.0, serialized=False)
     return r, c
 
 

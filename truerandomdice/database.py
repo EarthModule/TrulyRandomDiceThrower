@@ -18,14 +18,8 @@ class ApiKey(Model):
 
     @staticmethod
     def save_key(key):
-        if ApiKey.select().count() == 1:
-            print('you already have api-key')
-            u = raw_input('do you want to replace it? K/e ')
-            if u is 'K':
-                ApiKey.delete_key()
-                return ApiKey.create(key=key)
-        else:
-            return ApiKey.create(key=key)
+        return ApiKey.create(key=key)
+
 
     @staticmethod
     def delete_key():

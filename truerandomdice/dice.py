@@ -1,5 +1,6 @@
 import time
 
+import database
 import ranclient
 
 
@@ -14,13 +15,15 @@ class Dice(object):
         self.__dices = int(dices)
         self.__sides = int(sides)
         self.__client = None
+        api_key = database.ApiKey.get_key()
+        self.api_key = api_key.key
 
     @property
     def client(self):
         if self.__client:
             return self.__client
         else:
-            client, cache = ranclient.initialize_client(live_results=True)
+            client, cache = ranclient.initialize_client(self.api_key, live_results=True)
             self.__client = client
             return client
 
@@ -59,7 +62,8 @@ class Dice(object):
 class BufferedDice(Dice):
     def __init__(self, dices, sides, cache_size=10):
         super(BufferedDice, self).__init__(dices, sides)
-        client, cache = ranclient.initialize_client(cached=True, cache_min=1, cache_max=sides, cache_size=cache_size)
+        client, cache = ranclient.initialize_client(self.api_key, cached=True, cache_min=1, cache_max=sides,
+                                                    cache_size=cache_size)
         self.client = client
         self.__cache = cache
         self.fifo_of_integers = []

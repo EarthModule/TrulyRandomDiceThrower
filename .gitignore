@@ -188,10 +188,8 @@ ENV/
 .mypy_cache/
 
 .idea/
-docs/
 
-truerandomdice/__init__.pyc
+
 truerandomdice/apikey.db
-truerandomdice/database.pyc
-truerandomdice/dice.pyc
-truerandomdice/ranclient.pyc
+
+*.db
