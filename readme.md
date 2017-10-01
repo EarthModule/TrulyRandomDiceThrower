@@ -3,3 +3,4 @@ Are you tired of that one dice as a player or GM that always seems to give you b
 Do you always use that one "lucky" dice just in case?
 Then this Python library is just for you! It takes its randomness from the "atmospheric noise", courtesy of random.org
 
+[![Build Status](https://travis-ci.org/EarthModule/TrulyRandomDiceThrower.svg?branch=master)](https://travis-ci.org/EarthModule/TrulyRandomDiceThrower)
