@@ -14,10 +14,7 @@ def extract_dice_from_string(s):
 
 
 def throw_the_dice(command):
-    command = str.lower(command)
-    input_array = command.split('d')
-    dices = input_array[0]
-    sides = input_array[1]
+    dices, sides = extract_dice_from_string(command)
     d = Dice(sides=sides, dices=dices)
     print(d.roll)
     return dices, sides

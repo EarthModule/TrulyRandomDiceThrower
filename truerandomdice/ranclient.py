@@ -94,7 +94,7 @@ def request_random_integers(amount, min_int, max_int, client, cache=None):
         return client.generate_integers(amount, min_int, max_int)
 
 
-key = verify_api_key()
+# key = verify_api_key()
 # print(get_capacity_left(key))
 
 
