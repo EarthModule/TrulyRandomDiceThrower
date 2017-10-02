@@ -10,3 +10,6 @@ Then this Python library is just for you! It takes its randomness from the "atmo
 
 You need api-key from random.org for this library to work.
 You can get yours from here: https://api.random.org/api-keys/beta
+
+When you download the project for the first time, run set_api_key.py from "truerandomdice" folder.
+After it you can test the application by running diceroller.py from the same folder.
