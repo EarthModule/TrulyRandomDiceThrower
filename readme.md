@@ -8,3 +8,5 @@ Are you tired of that one dice as a player or GM that always seems to give you b
 Do you always use that one "lucky" dice just in case?
 Then this Python library is just for you! It takes its randomness from the "atmospheric noise", courtesy of random.org
 
+You need api-key from random.org for this library to work.
+You can get yours from here: https://api.random.org/api-keys/beta
