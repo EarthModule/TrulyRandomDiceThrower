@@ -7,7 +7,6 @@ setup(
     classifiers=[
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python :: 2.7',
-        'Topic :: Random :: Dice',
     ],
     url='https://github.com/EarthModule/TrulyRandomDiceThrower',
     download_url='https://github.com/EarthModule/TrulyRandomDiceThrower/releases/tag/0.2',

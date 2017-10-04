@@ -1,4 +1,5 @@
 # Truly Random Dice-Thrower for Table-Top RolePlaying Games (TRDTTTRPG)
+[![PyPI](https://img.shields.io/pypi/pyversions/truerandomdice.svg)]()
 [![PyPI version](https://badge.fury.io/py/truerandomdice.svg)](https://badge.fury.io/py/truerandomdice)
 [![Build Status](https://travis-ci.org/EarthModule/TrulyRandomDiceThrower.svg?branch=master)](https://travis-ci.org/EarthModule/TrulyRandomDiceThrower)
 [![Coverage Status](https://coveralls.io/repos/github/EarthModule/TrulyRandomDiceThrower/badge.svg?branch=master)](https://coveralls.io/github/EarthModule/TrulyRandomDiceThrower?branch=master)
