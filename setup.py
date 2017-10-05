@@ -2,7 +2,7 @@ from distutils.core import setup
 
 setup(
     name='truerandomdice',
-    version='0.2',
+    version='0.2.1',
     packages=['truerandomdice'],
     classifiers=[
         'License :: OSI Approved :: MIT License',
@@ -14,7 +14,7 @@ setup(
         'requests',
     ],
     url='https://github.com/EarthModule/TrulyRandomDiceThrower',
-    download_url='https://github.com/EarthModule/TrulyRandomDiceThrower/releases/tag/0.2',
+    download_url='https://github.com/EarthModule/TrulyRandomDiceThrower/releases/tag/0.2.1',
     license='',
     author='toni nurmi',
     author_email='toni.nurmi@hotmail.com',
