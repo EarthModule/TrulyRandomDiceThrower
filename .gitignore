@@ -191,5 +191,6 @@ ENV/
 
 
 truerandomdice/apikey.db
+*api_key_for_tests.txt
 
 *.db

@@ -3,20 +3,31 @@ import time
 import database
 import ranclient
 
-
 # https://stackoverflow.com/a/14917171/1754089
 def nested_sum(L):
     return sum(nested_sum(x) if isinstance(x, list) else x for x in L)
 
 
 class Dice(object):
-    def __init__(self, dices, sides):
+    def __init__(self, dices, sides, api_key=None):
+        import set_api_key
         super(Dice, self).__init__()
         self.__dices = int(dices)
         self.__sides = int(sides)
         self.__client = None
-        api_key = database.ApiKey.get_key()
-        self.api_key = api_key.key
+        if api_key:
+            self.api_key = api_key
+        else:
+            try:
+                api_key = database.ApiKey.get_key()
+                self.api_key = api_key.key
+            except AttributeError:
+                try:
+                    set_api_key.verify_api_key()
+                    api_key = database.ApiKey.get_key()
+                    self.api_key = api_key.key
+                except Exception:
+                    print('apikey set failed')
 
     @property
     def client(self):
@@ -60,8 +71,8 @@ class Dice(object):
 
 
 class BufferedDice(Dice):
-    def __init__(self, dices, sides, cache_size=10):
-        super(BufferedDice, self).__init__(dices, sides)
+    def __init__(self, dices, sides, cache_size=10, api_key=None):
+        super(BufferedDice, self).__init__(dices, sides, api_key=api_key)
         client, cache = ranclient.initialize_client(self.api_key, cached=True, cache_min=1, cache_max=sides,
                                                     cache_size=cache_size)
         self.client = client

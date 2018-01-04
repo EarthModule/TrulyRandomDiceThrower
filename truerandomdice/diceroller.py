@@ -49,7 +49,7 @@ def buffered_dice_app():
         kind = raw_input(prompt)
         if dice_pattern.match(kind):
             dices, sides = extract_dice_from_string(kind)
-            dice = BufferedDice(dices, sides)
+            dice = BufferedDice(dices, sides, api_key='5d960cd3-b53e-498b-8c58-5b8e7c58fbe7')
         elif str(kind) == 'Q':
             break
         else:

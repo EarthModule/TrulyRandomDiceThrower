@@ -1,6 +1,10 @@
-from peewee import SqliteDatabase, Model, CharField, BooleanField, DoesNotExist
+try:
+    from peewee import SqliteDatabase, Model, CharField, BooleanField, DoesNotExist
 
-db = SqliteDatabase('apikey.db')
+    db = SqliteDatabase('apikey.db')
+except ImportError:
+    print('importin peewee failed')
+    
 
 
 class ApiKey(Model):
@@ -35,8 +39,11 @@ class ApiKey(Model):
     class Meta:
         database = db
 
-
-db.create_tables([ApiKey], safe=True)
+try:
+    db.create_tables([ApiKey], safe=True)
+    print('database created')
+except Exception:
+    print('database creation failed')
 
 if __name__ == '__main__':
     ApiKey.save_key('dlsls')
