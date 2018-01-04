@@ -1,8 +1,8 @@
 from distutils.core import setup
-
+version = '0.3.1'
 setup(
     name='truerandomdice',
-    version='0.2.1',
+    version=version,
     packages=['truerandomdice'],
     classifiers=[
         'License :: OSI Approved :: MIT License',
@@ -14,7 +14,7 @@ setup(
         'requests',
     ],
     url='https://github.com/EarthModule/TrulyRandomDiceThrower',
-    download_url='https://github.com/EarthModule/TrulyRandomDiceThrower/releases/tag/0.2.1',
+    download_url='https://github.com/EarthModule/TrulyRandomDiceThrower/releases/tag/' + version,
     license='',
     author='toni nurmi',
     author_email='toni.nurmi@hotmail.com',
