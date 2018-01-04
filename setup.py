@@ -1,5 +1,5 @@
 from distutils.core import setup
-version = '0.3.1'
+version = '0.3.2'
 setup(
     name='truerandomdice',
     version=version,

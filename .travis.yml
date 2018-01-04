@@ -1,21 +1,21 @@
 language: python
 python:
-  - "2.7"
-
-# command to install dependencies
+- '2.7'
 install:
-  - pip install -r requirements.txt
-  - pip install coverage
-  - pip install coveralls
-
-# command to run tests
+- pip install -r requirements.txt
+- pip install coverage
+- pip install coveralls
 script:
-  - python test_random_dice.py
-  - coverage run test_random_dice.py
+- python test_random_dice.py
+- coverage run test_random_dice.py
 
 after_success:
-  - coveralls
+- coveralls
 
-
-
-
+deploy:
+  provider: pypi
+  user: "toninurmi"
+  password:
+    secure: "pHtrbVcffJbm0iAGpPDc2gMU0j/9sBaLqSBLd04gsbcXeU9FKbLMyouMgfaaI60rWZjw4MoNFIkNFssLKHzjQeiNOPkn3Q2s+a/G7UIMoKbajVZoFvraUgh54/NqzKTWkpLenx3I7amKlJwEcgg9y9f6OocCSMM5NrR7HQWoxbjYIViWmIImp/88HL8HDZnmkw2wPLDO0AscBBmTnw5S9jKiw0+Dz+cPsXMk3UuFfqF5BEDVb6Lp6Fwx4aAIlDMzIAJhChaB27h+jICK04MJ3o/tMLu4m8TrSnZRuK9r/Jde6XdVx5yxzT0a0VLKpSqH/H7TqF7wtIBPqm0vmiOg/d9zS+0Y0iBdJLktNKjR2mdALoqX8X49HnVBZCVohu8Gw88UaM7xwZ2Sd7lOTx0+VojEh6CzB0qADJKRYmx46z9Upnk/rxnegBgmF579EVSmDHkyDTCeJb7k8BmbKsRIpT72TxOxehihwZfZ4dL5+6G3awX5MluOABBqIbjtxU8yDfbw2sa1xbID6Fhmm74Qe+U0rnFm//IVrjnRd1vhKFb30DaaCd9GEl2iTL0WWG61kMt0YB5RuEOZWGyMKnBxYTXQd6nmxXZSCta5pJpaj6ELX0FLutQBBtlA/zHU7gzXqmJn6wP01xA4XgWALqSylN79tyIf/HceqCG5jV5PAeM="
+  on:
+    tags: true
